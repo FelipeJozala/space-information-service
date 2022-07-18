@@ -19,11 +19,29 @@ const config = {
 				test: /\.(js|jsx|ts|tsx)$/,
 				use: 'ts-loader',
 				exclude: /node_modules/,
+			},{
+				test: /\.less$/,
+				use: [
+					{
+						loader: 'style-loader'
+					},{
+						loader: 'css-loader',
+					},{
+						loader: "less-loader",
+          	options: {
+            	lessOptions: {
+              	javascriptEnabled: true,
+            	},
+          		sourceMap: true,
+						}
+					}
+				],
+				exclude: /node_modules/,
 			}
 		]
 	},
 	resolve: {
-		extensions: [ '.js','.jsx','.ts','.tsx','.json'],
+		extensions: [ '.js','.jsx','.ts','.tsx','.json', '.less', '.css'],
 		alias: {
 			'@domain': path.resolve(__dirname, 'src/domain/'),
 			'@application': path.resolve(__dirname, 'src/application/'),
