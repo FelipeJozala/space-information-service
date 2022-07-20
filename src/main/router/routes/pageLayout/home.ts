@@ -5,6 +5,9 @@ export const homeRoute: Route = {
 	path: 'home',
 	group: false,
 	content: makeHomePage,
-	menu: false,
+	menu: {
+		name: 'home',
+		icon: null
+	},
 	subRoutes: false
 }
